@@ -1,0 +1,115 @@
+Usage: shaderc -f <in> -o <out> --type <v/f/c> --platform <platform>
+
+shaderc -f vs_BlinnPhong.sc -o vs_BlinnPhong.bin --type v -i ../bgfx/src/ --platform windows -p 150 
+shaderc -f vs_BlinnPhong.sc -o vs_BlinnPhong.bin --type v -i ../bgfx/src/ --platform windows -p vs_4_0
+
+shaderc -f fs_BlinnPhong.sc -o fs_BlinnPhong.bin --type f -i ../bgfx/src/ --platform windows -p 150 
+shaderc -f fs_BlinnPhong.sc -o fs_BlinnPhong.bin --type f -i ../bgfx/src/ --platform windows -p ps_4_0
+
+shaderc -f vs_Diffuse.sc -o vs_Diffuse.bin --type v -i ../bgfx/src/ --platform windows -p vs_4_0
+shaderc -f fs_Diffuse.sc -o fs_Diffuse.bin --type f -i ../bgfx/src/ --platform windows -p ps_4_0
+
+shaderc -f vs_LightPoint.sc -o vs_LightPoint.bin --type v -i ../bgfx/src/ --platform windows -p vs_4_0
+
+shaderc -f fs_LightPoint.sc -o fs_LightPoint.bin --type f -i ../bgfx/src/ --platform windows -p ps_4_0
+
+shaderc -f vs_BlinnPhong_TEX.sc -o vs_BlinnPhong_TEX.bin --type v -i ../bgfx/src/ --platform windows -p 150 
+shaderc -f vs_BlinnPhong_TEX.sc -o vs_BlinnPhong_TEX.bin --type v -i ../bgfx/src/ --platform windows -p vs_4_0
+
+shaderc -f fs_BlinnPhong_TEX.sc -o fs_BlinnPhong_TEX.bin --type f -i ../bgfx/src/ --platform windows -p 150 
+shaderc -f fs_BlinnPhong_TEX.sc -o fs_BlinnPhong_TEX.bin --type f -i ../bgfx/src/ --platform windows -p ps_4_0
+
+shaderc -f vs_PBR.sc -o vs_PBR.bin --type v -i ../bgfx/src/ --platform windows -p 150 
+shaderc -f vs_PBR.sc -o vs_PBR.bin --type v -i ../bgfx/src/ --platform windows -p vs_4_0
+
+shaderc -f fs_PBR.sc -o fs_PBR.bin --type f -i ../bgfx/src/ --platform windows -p 150 
+shaderc -f fs_PBR.sc -o fs_PBR.bin --type f -i ../bgfx/src/ --platform windows -p ps_4_0
+
+shaderc -f fs_Skybox.sc -o fs_Skybox.bin --type f -i ../bgfx/src/ --platform windows -p ps_4_0
+
+shaderc -f vs_Skybox.sc -o vs_Skybox.bin --type v -i ../bgfx/src/ --platform windows -p vs_4_0
+
+shaderc -f fs_IBL.sc -o fs_IBL.bin --type f -i ../bgfx/src/ --platform windows -p ps_4_0
+
+shaderc -f vs_IBL.sc -o vs_IBL.bin --type v -i ../bgfx/src/ --platform windows -p vs_4_0
+
+shaderc -f fs_IBL.sc -o fs_IBL.bin --type f -i ../bgfx/src/ --platform windows -p 150
+
+shaderc -f vs_IBL.sc -o vs_IBL.bin --type v -i ../bgfx/src/ --platform windows -p 150
+
+shaderc -f fs_Shadow.sc -o fs_Shadow.bin --type f -i ../bgfx/src/ --platform windows -p ps_4_0
+
+shaderc -f vs_Shadow.sc -o vs_Shadow.bin --type v -i ../bgfx/src/ --platform windows -p vs_4_0
+
+shaderc -f fs_ShadowMesh.sc -o fs_ShadowMesh.bin --type f -i ../bgfx/src/ --platform windows -p ps_4_0
+
+shaderc -f vs_ShadowMesh.sc -o vs_ShadowMesh.bin --type v -i ../bgfx/src/ --platform windows -p vs_4_0
+
+shaderc -f fs_DiffuseShadow.sc -o fs_DiffuseShadow.bin --type f -i ../bgfx/src/ --platform windows -p ps_4_0
+
+shaderc -f vs_DiffuseShadow.sc -o vs_DiffuseShadow.bin --type v -i ../bgfx/src/ --platform windows -p vs_4_0
+
+texturec -f ibl_brdf_lut.png -o ibl_brdf_lut.dds
+
+Options:
+  -h, --help                    Help.
+  -v, --version                 Version information only.
+  -f <file path>                Input file path.
+  -i <include path>             Include path (for multiple paths use -i multiple times).
+  -o <file path>                Output file path.
+      --bin2c [array name]      Generate C header file. If array name is not specified base file name will be used as name.
+      --depends                 Generate makefile style depends file.
+      --platform <platform>     Target platform.
+           android
+           asm.js
+           ios
+           linux
+           orbis
+           osx
+           windows
+      -p, --profile <profile>   Shader model (default GLSL).
+
+           100_es               OpenGL ES Shading Language / WebGL (ESSL)
+           300_es
+           310_es
+           320_es
+
+           s_3_0                High-Level Shading Language (HLSL)
+           s_4_0
+           s_5_0
+
+           metal                Metal Shading Language (MSL)
+
+           pssl                 PlayStation Shader Language (PSSL)
+
+           spirv13-11           Standard Portable Intermediate Representation - V (SPIR-V)
+           spirv14-11
+           spirv15-12
+           spirv10-10
+           spirv
+
+           120                  OpenGL Shading Language (GLSL)
+           130
+           140
+           150
+           330
+           400
+           410
+           420
+           430
+           440
+      --preprocess              Preprocess only.
+      --define <defines>        Add defines to preprocessor (semicolon separated).
+      --raw                     Do not process shader. No preprocessor, and no glsl-optimizer (GLSL only).
+      --type <type>             Shader type (vertex, fragment, compute)
+      --varyingdef <file path>  Path to varying.def.sc file.
+      --verbose                 Verbose.
+
+Options (DX9 and DX11 only):
+
+      --debug                   Debug information.
+      --disasm                  Disassemble compiled shader.
+  -O <level>                    Optimization level (0, 1, 2, 3).
+      --Werror                  Treat warnings as errors.
+
+For additional information, see https://github.com/bkaradzic/bgfx
